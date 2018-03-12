@@ -1,0 +1,5 @@
+{
+    "nek-vue.min": "./components/index.js",
+    "button": "./components/button/index.js",
+    "icon": "./components/icon/index.js"
+}
