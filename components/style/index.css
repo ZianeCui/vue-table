@@ -1,2 +1,3 @@
 @import "./core/base";
 @import "./core/transition";
+@import "../table/src/style/index"

@@ -19,18 +19,18 @@
             </tbody>
         </table> -->
         <!-- table float right -->
-        <table class="table">
+        <table class="kl-table__main">
             <colgroup>
                 <col v-for="(column, index) in cloumns" :width="column.width + 'px'" >
             </colgroup>
-            <thead ref="thead" class="kl-table-body-thead">
+            <thead ref="thead" class="kl-table__main__thead">
                 <tr>
-                    <th class="kl-table-body-th" v-for="thItem in cloumns">{{thItem.title}}</th>
+                    <th class="kl-table__main__thead__th" v-for="thItem in cloumns">{{thItem.title}}</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr class="kl-table-body-tbody" v-for="trItem in data">
-                    <td class="kl-table-body-td" v-for="tdItem in cloumns">{{trItem[tdItem.key]}}</td>
+            <tbody class="kl-table__main__tbody">
+                <tr v-for="trItem in data">
+                    <td class="kl-table__main__tbody__td" v-for="tdItem in cloumns">{{trItem[tdItem.key]}}</td>
                 </tr>
             </tbody>
         </table>
