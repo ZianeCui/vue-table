@@ -1,27 +1,7 @@
-import button from './button';
-import form from './form';
-import formItem from './form-item';
-import icon from './icon';
-import dropdown from './dropdown';
-import dropdownItem from './dropdown-item';
-import dropdownMenu from './dropdown-menu';
-import popper from './popper';
-import select from './select';
-import option from './option';
-import tooltip from './tooltip';
+import table from './table';
 
 const components = {
-    button,
-    form,
-    formItem,
-    icon,
-    dropdown,
-    dropdownItem,
-    dropdownMenu,
-    popper,
-    select,
-    option,
-    tooltip
+    table
 };
 
 const install = function(Vue) {

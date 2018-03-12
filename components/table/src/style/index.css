@@ -1,0 +1,28 @@
+@charset "UTF-8";
+@import '../../../style/theme/var.css';
+
+@component-namespace kl {
+    @b table {
+        @e header {
+            display: inline-block;
+            font-size: 12px;
+        }
+        @e footer {
+            /* display: none; */
+            position: absolute;
+            width: inherit;
+            max-height: 200px;
+            overflow: auto;
+            margin: 5px 0;
+            padding: 5px 0;
+            background-color: #fff;
+            box-sizing: border-box;
+            border-radius: 4px;
+            box-shadow: 0 1px 6px rgba(0,0,0,.2);
+            z-index: 900;
+            @m show {
+                display: inline-block;
+            }
+        }
+    }
+}
