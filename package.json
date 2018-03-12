@@ -1,7 +1,7 @@
 {
-  "name": "nek-vue",
-  "version": "0.1.2",
-  "description": "nek-ui by vue",
+  "name": "vue-table",
+  "version": "0.0.1",
+  "description": "table components by vue",
   "main": "./lib/nek-vue.min/index.js",
   "files": [
     "lib"
@@ -11,8 +11,7 @@
     "build": "webpack --config build/webpack.prod.conf.js && gulp --gulpfile build/build-style.js",
     "lint-fix": "eslint --ext .js,.vue --fix components/** examples/**",
     "coverage": "jest --coverage",
-    "test": "jest",
-    "doc_dev": "cd docs && npm run dev"
+    "test": "jest"
   },
   "jest": {
     "moduleNameMapper": {
@@ -95,22 +94,20 @@
   "keywords": [
     "vue",
     "components",
-    "nek-ui",
-    "nek-vue"
+    "table"
   ],
-  "author": "kaola-FED",
+  "author": "ziane",
   "directories": {
     "example": "examples"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yeomanyang/nek-vue.git"
+    "url": "git+https://github.com/ZianeCui/vue-table.git"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/yeomanyang/nek-vue/issues"
+    "url": "https://github.com/ZianeCui/vue-table/issues"
   },
-  "homepage": "https://github.com/yeomanyang/nek-vue#readme",
   "dependencies": {
     "async-validator": "^1.8.2",
     "clipboard": "^1.7.1",

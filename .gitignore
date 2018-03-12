@@ -15,4 +15,4 @@ yarn-error.log*
 
 /lib/
 
-pachage-lock.json
+package-lock.json
