@@ -3,9 +3,11 @@
 
 @component-namespace kl {
     @b table {
+        position: relative;
         @e main {
             table-layout: fixed;
-            width: 100%;
+            overflow: auto;
+            /* width: 100%; */
             @e thead {
                 background: #eef1f4;
                 font-size: 12px;
@@ -28,5 +30,15 @@
                 }
             }
         }
+
+        @e fixed {
+            position: absolute;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            box-shadow: 1px 0 8px #d3d4d6;
+            border-bottom: none;
+        }
+
     }
 }
