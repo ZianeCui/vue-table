@@ -3,7 +3,7 @@
         <!-- table fixed left -->
         <div class="kl-table__fixed"
             ref="tableFixedLeft"
-            :style="{width: fixedLeftWidth, height: '500px'}">
+            :style="{width: fixedLeftWidth, height: 500 - scrollbarWidth + 'px'}">
             <table v-if="isFixedLeft == true"
                 :style="{width: tableNodeWidth + 'px'}"
                 class="kl-table__main">
@@ -29,7 +29,7 @@
         <!-- table fixed right -->
         <div class="kl-table__fixedRight"
             ref="tableFixedRight"
-            :style="{width: fixedRightWidth + 'px', height: '500px'}">
+            :style="{width: fixedRightWidth + 'px',  height: 500 - scrollbarWidth + 'px', right: scrollbarWidth + 'px'}">
             <table v-if="isFixedRight == true"
                 :style="{width: tableNodeWidth + 'px', marginLeft: - (tableNodeWidth - fixedRightWidth) + 'px'}"
                 class="kl-table__main">
@@ -82,6 +82,7 @@ export default {
     name: 'kl-table',
     data() {
         return {
+            scrollbarWidth: 0,
             cloumns:  [{
                 title: 'alusdfhiasdfjklhasdkljoadsfkloq',
                 dataIndex: 'name',
@@ -297,6 +298,23 @@ export default {
         handleBodyScroll(event) {
             this.$refs.tableFixedLeft.scrollTop = event.target.scrollTop;
             this.$refs.tableFixedRight.scrollTop = event.target.scrollTop;
+        },
+        judgeScrollBar(e) {
+            this.hasHeightScroll = this.$refs.mainTable.scrollHeight > this.$refs.mainTable.clientHeight
+            this.hasWidthScroll = this.$refs.mainTable.scrollWidth > this.$refs.mainTable.clientWidth
+        },
+        getScrollbarWidth() {
+            let oP = document.createElement('p'),
+                styles = {
+                    width: '100px',
+                    height: '100px',
+                    overflowY: 'scroll'
+                }, i, scrollbarWidth;
+            for (i in styles) oP.style[i] = styles[i];
+            document.body.appendChild(oP);
+            scrollbarWidth = oP.offsetWidth - oP.clientWidth;
+            oP.remove();
+            return scrollbarWidth;
         }
     },
     computed: {
@@ -309,7 +327,7 @@ export default {
             return this.cloumns.some((column) => {
                 return column.fixed == 'right';
             })
-        }
+        },
     },
     mounted() {
         // 得到每列的宽度
@@ -332,8 +350,6 @@ export default {
         })
         this.fixedLeftWidth = fixedLeftWidth + 'px';
         this.fixedRightWidth = fixedRightWidth;
-        console.log(this.fixedLeftWidth);
-        console.log(this.fixedRightWidth);
 
         // 得到表头的高度
         const thNode = this.$refs.thead.children[0]
@@ -351,6 +367,8 @@ export default {
         const tableNode = this.$refs.table;
         const tableNodeStyle = document.defaultView.getComputedStyle(tableNode);
         this.tableNodeWidth = parseInt(tableNodeStyle.width) + parseInt(tableNodeStyle.paddingLeft) + parseInt(tableNodeStyle.paddingRight);
+        window.onload = this.judgeScrollBar;
+        this.scrollbarWidth = this.getScrollbarWidth();
         this.$forceUpdate();
     }
 };
