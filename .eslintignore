@@ -1,6 +1,7 @@
 /build/
 /config/
 /dist/
+/examples/
 /*.js
 
 .DS_Store

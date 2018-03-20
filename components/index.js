@@ -1,7 +1,9 @@
 import table from './table';
+import tableColumn from './table-column';
 
 const components = {
-    table
+    table,
+    tableColumn
 };
 
 const install = function(Vue) {

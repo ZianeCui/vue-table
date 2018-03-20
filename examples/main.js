@@ -15,6 +15,10 @@ const router = new VueRouter({
         {
             path: '/table',
             component: require('./routers/table.vue')
+        },
+        {
+            path: '/tableColumn',
+            component: require('./routers/tableColumn.vue')
         }
     ]
 });
